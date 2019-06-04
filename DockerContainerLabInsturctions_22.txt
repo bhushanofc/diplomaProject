@@ -1,0 +1,107 @@
+PLease access following url
+
+http://35.200.165.78:8081/
+http://35.200.165.78:8888/welcome
+http://35.200.165.78:8080/
+
+
+
+Steps for installing Docker on CentOS 7 Virtual Machine on Google Cloud
+
+# sudo yum install docker
+# sudo systemctl start docker 
+# sudo systemctl status docker
+# sudo systemctl enable docker
+# sudo docker images
+# sudo docker ps			Lists running containers. 
+# sudo docker pull hello-world		Most of your images will be created on top of a base image from the Docker Hub registry.
+# sudo docker images			
+# sudo docker run hello-world
+
+# sudo docker container ls --all	List all containers runningus
+# sudo docker container --help
+
+
+_____________________________________________________________________________________________________________________________
+
+
+Lab Instructions for pulling Readymade container images from Docker Hub
+		     Starting Containers with the help of Docker Container service
+		     Testing Applications running inside container
+
+
+
+a. Pull and Run nginx Image from Docker Hub
+
+     	#sudo docker pull nginx
+	
+	#docker run --name webserver -d -p 8080:80 nginx:latest
+	
+	Access  url http://your external id address:8080  in  your client Browser  to invoke Web Application
+
+
+
+b. Pull Angular app Image from Rahul Navale's Docker hub images galary
+
+	#sudo docker pull rahulsn/ng
+
+	docker run --name rnserver -d -p 8888:80 rahulsn/ng
+
+	Access  url http://your external id address:8888  in  your client Browser  to invoke Web Application
+
+
+
+c. Pull Containerized applications from Ravi Tambade Git Repository
+
+  #git clone https://github.com/RaviTambade/containerapps.git
+
+
+
+  c.1 Build container for NodeJS Application
+	
+	#cd containerapps/nodeapp			--> set directory to NodeJS application folder
+
+	#sudo docker build -t nodeapp .  		--> build docker container with the help of DockerFile 
+
+
+  c.2 Run container for NodeJS Application
+
+	#sudo docker run -p 8081:8081 nodeapp		-->run docker container which has NodeJS EStore Web app hosted
+
+	Access  url http://your external id address:8081  in  your client Browser  to invoke Web Application
+
+  
+   c.3 Build container for JAVA Application
+	
+	#sudo docker build -t containerjavaapp .
+	#sudo docker run containerjavaapp
+
+
+ Docker Commands to start or stop containers running inside Docker Container Service
+
+
+ if 8fd --------- is container id,
+
+
+#sudo docker stop 8fd			It will automatically find the container that matches the name and stop it.
+#sudo docker start 8df			.
+
+#sudo docker ps -a 			to see all of our existing containers (starting or stopped).
+#sudo docker rm 8fd		 	you’ll see it has been removed.
+
+
+
+
+#sudo docker images			to list all of your Docker images that have been downloaded 
+#sudo docker rmi bba			it will delete the docker image with id bba from repository 	
+#suso docker rmi ce6				it will delete the docker image with id ce6 from repository 
+
+
+
+#docker rmi $(docker images -a -q)   --remove all images from docker
+#docker system prune                 ----------remove all containers
+#docker system prune -a              -- to additionally remove any stopped containers and all unused images
+
+Explore DockerFile available in folder containerjavaapp, nodeapp , 
+
+
